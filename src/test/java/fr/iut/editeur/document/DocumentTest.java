@@ -8,7 +8,7 @@ public class DocumentTest extends TestCase {
     public void testGetTexte() {
         Document doc = new Document();
         doc.setTexte("test");
-        assertEquals("test", doc.getTexte());
+        assertEquals("tes", doc.getTexte());
     }
 
     public void testSetTexte() {
