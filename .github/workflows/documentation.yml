@@ -1,0 +1,23 @@
+  on:
+    push:
+      branches:
+        - master
+  jobs:
+    mettreAJourDoc:
+      runs-on: ubuntu-latest
+      steps:
+        - name: se deplacer dans le repertoire
+          uses: actions/checkout@v3
+        - name: setup java
+          uses: actions/setup-java@v1
+          with:
+            java-version: 17
+        - name: generer la doc
+          run: mvn javadoc::javadoc
+        - name: deployer la doc
+          uses: peaceiris/actions-gh-pages@v3
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            publish_dir: ./target/site/apidocs
+  permissions:
+    contents: write
