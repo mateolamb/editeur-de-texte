@@ -3,6 +3,9 @@ package fr.iut.editeur.commande.factory;
 import fr.iut.editeur.commande.*;
 import fr.iut.editeur.document.Document;
 
+/**
+ * Factory qui permet de créer les commandes
+ */
 public class CommandeFactory {
 
     private static CommandeFactory instance;
@@ -16,6 +19,13 @@ public class CommandeFactory {
 
     private CommandeFactory() {}
 
+    /**
+     * Crée une commande
+     * @param name nom de la commande
+     * @param document document sur lequel la commande va s'appliquer
+     * @param parameters paramètres de la commande
+     * @return la commande
+     */
     public Commande createCommand(String name, Document document, String[] parameters) {
         switch (name) {
             case "ajouter" : return new CommandeAjouter(document, parameters);
